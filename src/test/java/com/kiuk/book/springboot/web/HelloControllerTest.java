@@ -6,16 +6,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
-import web.HelloController;
 
 import static org.hamcrest.Matchers.is;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
-@RunWith(SpringRunner.class)  // 테스트를 진행할 때 JUnit에 내장된 실행자 외에 다른 실행자를 실행시킴
-@WebMvcTest(controllers = HelloController.class) // 여러 스프링 테스트 어노테이션 중, WEB (MVC)에 집중할 수 있는 어노테이션
+@RunWith(SpringRunner.class)
+// 테스트를 진행할 때 JUnit에 내장된 실행자 외에 다른 실행자를 실행시킴
+@WebMvcTest
+ // 여러 스프링 테스트 어노테이션 중, WEB (MVC)에 집중할 수 있는 어노테이션
+
 // @Controller, @ControllerAdvice 등은 사용할 수 있지만, @service, @component, @Repository 등은 사용할 수 없다.
 public class HelloControllerTest {
 

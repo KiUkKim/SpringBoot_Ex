@@ -1,7 +1,7 @@
 package com.kiuk.book.springboot.web.dto;
 
 import org.junit.Test;
-import web.dto.HelloResponseDto;
+import com.kiuk.book.springboot.service.web.dto.HelloResponseDto;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class HelloResponseDtoTest {

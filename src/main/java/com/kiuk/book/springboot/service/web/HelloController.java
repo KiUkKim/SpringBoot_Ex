@@ -1,12 +1,14 @@
-package web;
+package com.kiuk.book.springboot.service.web;
 
+import com.kiuk.book.springboot.service.web.dto.HelloResponseDto;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import web.dto.HelloResponseDto;
 
 // restcontroller는 컨트롤ㄹ러를 JSON을 반환하는 컨트롤ㄹ러로 만들어 줍니다.
 // GetMapping은 HTTP Method인 Get의 요청을 받을 수 있는 API를 만들어 줍니다.
+@ComponentScan(basePackages = {"com.kiuk.book.springboot"})
 @RestController
 public class HelloController {
     @GetMapping("/hello")
