@@ -7,6 +7,7 @@ import com.kiuk.book.springboot.service.web.dto.PostsUpdateRequestDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+// PostsService에 의존성을 주입해주지 않게되면, Bean을 생성하지 못해서 NullPointerException이 발생하게 된다. 조심하자!
 @RequiredArgsConstructor
 @RestController
 public class PostsApiController {
