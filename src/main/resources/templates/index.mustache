@@ -22,7 +22,8 @@
         {{#posts}}
             <tr>
                 <td>{{id}}</td>
-                <td>{{title}}</td>
+                <!--     title의 글씨를 클릭하면 update로 이동한다.           -->
+                <td><a href="/posts/update/{{id}}">{{title}}</a></td>
                 <td>{{author}}</td>
                 <td>{{modifiedDate}}</td>
             </tr>
