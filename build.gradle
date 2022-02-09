@@ -39,6 +39,14 @@ dependencies {
     compile('org.springframework.session:spring-session-jdbc')
 
     testCompile('org.springframework.boot:spring-boot-starter-test')
+
+    // 스프링 시큐리티 테스트를 위한 spring 지원
+    implementation("org.springframework.security:spring-security-test")
+
+    //    Jnuit4 추가, test 오류시 사용 -> Junit의 버전 업데이트
+    testImplementation("org.junit.vintage:junit-vintage-engine") {
+        exclude group: "org.hamcrest", module: "hamcrest-core"
+    }
 }
 
 test {
