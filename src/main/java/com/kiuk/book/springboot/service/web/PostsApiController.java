@@ -5,7 +5,11 @@ import com.kiuk.book.springboot.service.web.dto.PostsResponseDto;
 import com.kiuk.book.springboot.service.web.dto.PostsSaveRequestDto;
 import com.kiuk.book.springboot.service.web.dto.PostsUpdateRequestDto;
 import lombok.RequiredArgsConstructor;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.HashMap;
+import java.util.Map;
 
 // PostsService에 의존성을 주입해주지 않게되면, Bean을 생성하지 못해서 NullPointerException이 발생하게 된다. 조심하자!
 @RequiredArgsConstructor
@@ -34,4 +38,23 @@ public class PostsApiController {
         postsService.delete(id);
         return id;
     }
+
+    // 조회 기능 구현
+    @GetMapping("/book/search")
+    public @ResponseBody Map<String, Object> search(@RequestParam(value="keyword")
+                                                    String keyword, Model model)
+    {
+        Map<String, Object > map = new HashMap<>();
+        map.put("postList", postsService.searchPosts(keyword));
+        return map;
+    }
+
+//    // 검색 기능 구현
+//    @GetMapping("/api/v1/search")
+//    public Long list(@RequestParam(value = "keyword") String keyword , Model model)
+//    {
+//        model.addAttribute("postList", PostsService.searchPosts(keyword));
+//        return ""
+//    }
+
 }

@@ -53,5 +53,14 @@ public class PostsService {
         postsRepository.delete(posts);
     }
 
+    // 게시판 검색 기능
+    @Transactional
+    public List<PostsListResponseDto> searchPosts(String keyword)
+    {
+        return postsRepository.findAllSearch(keyword).stream()
+                .map(PostsListResponseDto::new)
+                .collect(Collectors.toList());
+    }
+
 
 }

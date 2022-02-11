@@ -17,7 +17,15 @@
             {{^userName}}
                 <a href="/oauth2/authorization/naver" class="btn btn-success active" role="button">Naver Login</a>
             {{/userName}}
+
+            <!--  검색 기능 영역    -->
+            <form action="/book/search" method="GET">
+                <input name = "keyword" type="text" placeholder="검색어를 입력해주세요!">
+                <button>검색하기</button>
+            </form>
+
         </div>
+
     </div>
     <br>
     <!-- 목록 출력 영역 -->
