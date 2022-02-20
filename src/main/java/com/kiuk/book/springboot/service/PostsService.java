@@ -2,10 +2,7 @@ package com.kiuk.book.springboot.service;
 
 import com.kiuk.book.springboot.domain.posts.Posts;
 import com.kiuk.book.springboot.domain.posts.PostsRepository;
-import com.kiuk.book.springboot.service.web.dto.PostsListResponseDto;
-import com.kiuk.book.springboot.service.web.dto.PostsResponseDto;
-import com.kiuk.book.springboot.service.web.dto.PostsSaveRequestDto;
-import com.kiuk.book.springboot.service.web.dto.PostsUpdateRequestDto;
+import com.kiuk.book.springboot.service.web.dto.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -15,7 +12,7 @@ import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
 @Service
-public class PostsService {
+public class PostsService{
     private final PostsRepository postsRepository;
 
     @Transactional
@@ -61,6 +58,5 @@ public class PostsService {
                 .map(PostsListResponseDto::new)
                 .collect(Collectors.toList());
     }
-
 
 }

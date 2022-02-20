@@ -5,6 +5,10 @@ var main = {
             _this.save();
         });
 
+        $('#btn-book-save').on('click', function (){
+            _this.book_save();
+        })
+
         $('#btn-update').on('click', function (){
             _this.update();
         });
@@ -30,6 +34,30 @@ var main = {
         }).done(function () {
             alert('글이 등록되었습니다.');
             window.location.href = '/';
+        }).fail(function (error) {
+            alert(JSON.stringify(error));
+        });
+    },
+
+    book_save : function () {
+        var data = {
+            title: $('#title').val(),
+            type: $('#type').val(),
+            author: $('#author').val(),
+            sign : $('#sign').val(),
+            publish : $('#publish').val(),
+            shape : $('#shape').val()
+        };
+
+        $.ajax({
+            type: 'POST',
+            url: '/api/v1/books',
+            dataType: 'json',
+            contentType: 'application/json; charset=utf-8',
+            data: JSON.stringify(data)
+        }).done(function () {
+            alert('글이 등록되었습니다.');
+            window.location.href = '/book';
         }).fail(function (error) {
             alert(JSON.stringify(error));
         });

@@ -6,6 +6,7 @@
         <div class="col-md-6">
             <a href="/posts/save" role="button" class="btn btn-primary">글 등록
             </a>
+            <a href="/book" role="button" class="btn btn-primary">도서 검색</a>
             {{#userName}}
                 Logged in as: <span id="user">{{userName}}</span>
             <a href="/logout" class="btn btn-info active" role="button">Logout</a>
@@ -17,7 +18,15 @@
             {{^userName}}
                 <a href="/oauth2/authorization/naver" class="btn btn-success active" role="button">Naver Login</a>
             {{/userName}}
+
+            <!--  검색 기능 영역    -->
+            <form action="/community/search" method="GET">
+                <input name = "keyword" type="text" placeholder="검색어를 입력해주세요!">
+                <button>검색하기</button>
+            </form>
+
         </div>
+
     </div>
     <br>
     <!-- 목록 출력 영역 -->

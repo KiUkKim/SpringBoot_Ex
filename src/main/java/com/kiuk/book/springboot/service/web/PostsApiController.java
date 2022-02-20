@@ -8,6 +8,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpSession;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -16,6 +17,7 @@ import java.util.Map;
 @RestController
 public class PostsApiController {
     private final PostsService postsService;
+    private final HttpSession httpSession;
 
     @PostMapping("/api/v1/posts")
     public Long save(@RequestBody PostsSaveRequestDto requestDto){
@@ -39,8 +41,8 @@ public class PostsApiController {
         return id;
     }
 
-    // 조회 기능 구현
-    @GetMapping("/book/search")
+    // 검색 기능 구현
+    @GetMapping("/community/search")
     public @ResponseBody Map<String, Object> search(@RequestParam(value="keyword")
                                                     String keyword, Model model)
     {
@@ -56,5 +58,7 @@ public class PostsApiController {
 //        model.addAttribute("postList", PostsService.searchPosts(keyword));
 //        return ""
 //    }
+
+
 
 }
