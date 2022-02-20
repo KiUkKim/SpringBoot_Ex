@@ -1,0 +1,13 @@
+{{>layout/header}}
+<h2>소장 도서 검색</h2>
+<!--책제목, 개인 저자, 도서 상태-->
+<div class="col-md-6">
+    <div class="row">
+        <a href="/book/save" role="button" class="btn btn-primary">소장 자료 등록</a>
+        <form action="/book/search" method = "GET">
+        <input name = "keyword" type="text" placeholder="검색하려는 도서를 입력하세요">
+        <button>검색하기</button>
+        </form>
+    </div>
+</div>
+{{>layout/footer}}
